@@ -7,13 +7,12 @@ namespace GradeBook
     {
         static void Main(string[] args)
         {
-            List<double> grades = new List<double>();
-            grades.Add(12.1);
-            Console.WriteLine(grades[0]);
-            if (args.Length > 0)
-            {
-                Console.WriteLine($"Hello {args[0]}!");
-            }
+            var book = new Book("ABC Book");
+            book.AddGrade(43.2);
+            book.AddGrade(12);
+            book.AddGrade(9);
+            book.ShowStatistics();
         }
     }
+
 }
