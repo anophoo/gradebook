@@ -11,7 +11,6 @@ namespace GradeBook
             book.AddGrade(43.2);
             book.AddGrade(12);
             book.AddGrade(9);
-            book.ShowStatistics();
         }
     }
 

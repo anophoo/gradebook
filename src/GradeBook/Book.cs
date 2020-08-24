@@ -4,7 +4,7 @@ using System.Linq;
 
 namespace GradeBook
 {
-    class Book
+    public class Book
     {
         private List<double> grades;
         private string name;
@@ -15,17 +15,14 @@ namespace GradeBook
             this.name = name;
         }
 
-        public void ShowStatistics()
+        public Statistics GetStatistics()
         {
-            if (grades == null) return;
+            if (grades == null) return null;
 
             var lowestGrade = grades.Min();
             var highestGrade = grades.Max();
             var averageGrade = grades.Sum() / grades.Count();
-
-            Console.WriteLine($"The lowest grade is {lowestGrade:N2}");
-            Console.WriteLine($"The highest grade is {highestGrade:N2}");
-            Console.WriteLine($"The average grade is {averageGrade:N2}");
+            return new Statistics(lowestGrade, highestGrade, averageGrade);
         }
 
         public void AddGrade(double grade)
