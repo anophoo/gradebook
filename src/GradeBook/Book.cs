@@ -27,7 +27,14 @@ namespace GradeBook
 
         public void AddGrade(double grade)
         {
-            this.grades.Add(grade);
+            if (grade >= 0 && grade <= 100)
+            {
+                this.grades.Add(grade);
+            }
+            else
+            {
+                throw new ArgumentException($"The grade {grade} is not valid");
+            }
         }
     }
 }

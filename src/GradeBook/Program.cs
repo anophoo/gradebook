@@ -8,9 +8,37 @@ namespace GradeBook
         static void Main(string[] args)
         {
             var book = new Book("ABC Book");
-            book.AddGrade(43.2);
-            book.AddGrade(12);
-            book.AddGrade(9);
+
+            while (true)
+            {
+                Console.WriteLine("Enter a grade or 'q' to quit:");
+                var input = Console.ReadLine();
+                if (input == "q")
+                {
+                    break;
+                }
+
+                try
+                {
+                    book.AddGrade(double.Parse(input));
+                }
+                catch (ArgumentException ex)
+                {
+                    Console.WriteLine(ex.Message);
+                }
+                catch (FormatException ex)
+                {
+                    Console.WriteLine(ex.Message);
+                }
+                finally
+                {
+                    Console.WriteLine("***");
+                }
+            }
+
+            Console.WriteLine($"lowest grade is {book.GetStatistics().LowestGrade}");
+            Console.WriteLine($"highest grade is {book.GetStatistics().LowestGrade}");
+            Console.WriteLine($"average grade is {book.GetStatistics().AverageGrade}");
         }
     }
 

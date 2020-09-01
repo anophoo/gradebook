@@ -16,7 +16,6 @@ namespace GradeBook.Tests
 
             // act
             var result = book.GetStatistics();
-            var expected = 31.1;
 
             // assert
             Assert.Equal(10.3, result.AverageGrade, 1);
